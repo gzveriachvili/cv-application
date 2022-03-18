@@ -1,0 +1,10 @@
+:root {
+  --main-bg: #e6e1d6;
+  --secondary-color: #0049ff;
+  --third-color: #141824;
+  --accent-color: #ffb200;
+}
+
+.main {
+  background-color: var(--main-bg);
+}

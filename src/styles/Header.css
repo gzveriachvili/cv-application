@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
+
+:root {
+  --header-bg: #141824;
+  --accent-color: #ffb200;
+}
+
+.header {
+  background-color: var(--header-bg);
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+}
+
+.header .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.title h1 {
+  font-family: 'Krona One', sans-serif;
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+.title svg {
+  color: var(--accent-color);
+  font-size: 2rem;
+}

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+:root {
+  --footer-bg: #141824;
+  --text-color: #fff;
+  --github-color: #ffb200;
+  --github-color-hover: #ff6600;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer footer {
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 0px 10px 0px;
+  display: flex;
+  column-gap: 5px;
+}
+
+.footer h3 {
+  color: var(--text-color);
+  font-family: 'Lato', sans-serif;
+}
+
+.footer svg {
+  color: var(--github-color);
+  font-size: 1.3rem;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.footer svg:hover {
+  color: var(--github-color-hover);
+  transform: rotate(360deg) scale(1.2);
+}
