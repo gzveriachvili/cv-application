@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import '../styles/Main.css';
+import General from './CVForm/general_info';
 
 export default class Main extends Component {
   // eslint-disable-next-line no-useless-constructor
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
     return (
       <div className='main'>
-        <h1>Main</h1>
+        <form>
+          <General />
+        </form>
       </div>
     );
   }

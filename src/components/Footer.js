@@ -13,7 +13,13 @@ export default class Footer extends Component {
       <div className='footer'>
         <footer>
           <h3>Made by Gia Zveriachvili</h3>
-          <VscGithubAlt />
+          <a
+            href='https://github.com/gzveriachvili'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <VscGithubAlt />
+          </a>
         </footer>
       </div>
     );
