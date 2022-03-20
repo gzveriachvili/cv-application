@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GeneralPreview from '../CVPreview/general_preview';
 import { FaUpload } from 'react-icons/fa';
+import photo from '../../assets/photo.jpg';
 
 export default class General extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -8,25 +9,33 @@ export default class General extends Component {
     super(props);
 
     this.state = {
-      personal: {
-        name: ['', false],
-        email: ['', false],
-      },
-      inputs: [],
+      input: { name: 'John Doe', title: 'Web Developer' },
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.clearOnClick = this.clearOnClick.bind(this);
   }
 
   handleChange = (e) => {
     this.setState({
-      personal: {
-        name: [e.target.value, true],
-        email: ['', false],
+      input: {
+        name: e.target.value,
       },
     });
   };
 
+  clearOnClick = (string) => {
+    if (this.state.input.name === string) {
+      this.setState({
+        input: {
+          name: '',
+        },
+      });
+    }
+  };
+
   render() {
-    const { personal } = this.state;
+    const { input } = this.state;
 
     return (
       <div className='wrapper'>
@@ -38,19 +47,25 @@ export default class General extends Component {
               <div className='col-1'>
                 <label htmlFor='fullName'>Full Name</label>
                 <input
-                  value={personal.name[0]}
+                  value={input.name}
+                  onClick={() => {
+                    this.clearOnClick('John Doe');
+                  }}
                   onChange={this.handleChange}
                   type='text'
                   id='fullName'
                 />
 
-                <label htmlFor='email'>Email</label>
+                <label htmlFor='title'>Title</label>
                 <input
-                  value={personal.email[0]}
-                  onChange={this.handleChange}
+                  value={input.title}
+                  onChange={this.handleChangeT}
                   type='text'
-                  id='email'
+                  id='title'
                 />
+
+                <label htmlFor='email'>Email</label>
+                <input type='text' id='email' />
 
                 <label htmlFor='phone'>Phone Number</label>
                 <input type='tel' id='phone' />
@@ -66,7 +81,7 @@ export default class General extends Component {
                   name='description'
                   id='description'
                   cols='30'
-                  rows='3'
+                  rows='6'
                 ></textarea>
 
                 <label htmlFor='photo' className='photo-upload'>
@@ -80,8 +95,13 @@ export default class General extends Component {
         </div>
         <div className='preview'>
           <GeneralPreview
-            fullName={personal.name[0]}
-            email={personal.email[0]}
+            photo={photo}
+            fullName={input.name}
+            title={input.title}
+            phone='50322258'
+            email='johnadams@gmail.com'
+            address='Berkley Street 12'
+            description='In 1989, Žižek published his first English-language text, entitled The Sublime Object of Ideology. In this book, he departed from traditional Marxist theory to develop a more analyzed materialist conception of ideology that drew heavily on Lacanian psychoanalysis and Hegelian idealism.'
           />
         </div>
       </div>
