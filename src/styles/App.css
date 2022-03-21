@@ -20,9 +20,10 @@
   box-sizing: border-box;
 }
 
-.App {
+.main-wrapper {
   display: flex;
   flex-direction: column;
+  row-gap: 0;
 }
 
 /*--General Info--*/
@@ -32,6 +33,7 @@
   display: flex;
   justify-content: center;
   column-gap: 100px;
+  row-gap: 0;
   padding: 30px 80px 30px 80px;
 }
 
@@ -63,7 +65,16 @@
   border-bottom: 2px dashed var(--form-focus);
   padding-bottom: 10px;
   margin-bottom: 20px;
-  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.general-info h2 svg {
+  cursor: pointer;
+  color: var(--accent-color);
 }
 
 .col-1,
@@ -86,6 +97,22 @@
   border: 2px solid var(--fourth-color);
   color: var(--text-color);
   margin-bottom: 25px;
+}
+
+#description::-webkit-scrollbar {
+  width: 3px;
+}
+
+#description::-webkit-scrollbar-track {
+  background-color: var(--form-bg);
+}
+
+#description::-webkit-scrollbar-thumb {
+  background-color: var(--secondary-color);
+}
+
+#description::-webkit-scrollbar-thumb:hover {
+  background-color: var(--form-focus);
 }
 
 .col-2 textarea:focus {
@@ -171,6 +198,7 @@ select:-webkit-autofill:focus {
 
 .photo-section img {
   width: 120px;
+  height: 120px;
   position: absolute;
   top: 12.5px;
   right: 40px;
