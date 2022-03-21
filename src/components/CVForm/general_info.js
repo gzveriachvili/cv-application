@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import uniqid from 'uniqid';
 import GeneralPreview from '../CVPreview/general_preview';
 import { FaUpload } from 'react-icons/fa';
-import defaultPhoto from '../../assets/photo.jpg';
+import defaultPhoto from '../../assets/profile.webp';
 
 export default class General extends Component {
   // eslint-disable-next-line no-useless-constructor
