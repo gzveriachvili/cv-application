@@ -125,30 +125,30 @@ export default class Practical extends Component {
           </div>
           <div className='col-1-col-2 edu'>
             <div className='col-1'>
-              <label htmlFor='university'>Position</label>
+              <label htmlFor='position'>Position</label>
               <input
                 value={position.text}
                 onChange={(e) => {
-                  this.handleChange(e, 0, 'university');
+                  this.handleChange(e, 0, 'position');
                 }}
                 onClick={() => {
                   this.clearOnClick('UX Designer', 'position', 0);
                 }}
                 type='text'
-                id='university'
+                id='position'
               />
 
-              <label htmlFor='programme'>Company</label>
+              <label htmlFor='company'>Company</label>
               <input
                 value={company.text}
                 onChange={(e) => {
-                  this.handleChange(e, 1, 'programme');
+                  this.handleChange(e, 1, 'company');
                 }}
                 onClick={() => {
-                  this.clearOnClick('Computer Science', 'programme', 1);
+                  this.clearOnClick('Dell Technologies', 'company', 1);
                 }}
                 type='text'
-                id='programme'
+                id='company'
               />
 
               <label htmlFor='from'>From</label>
@@ -166,17 +166,17 @@ export default class Practical extends Component {
             </div>
 
             <div className='col-2'>
-              <label htmlFor='degree'>Level</label>
+              <label htmlFor='level'>Level</label>
               <input
                 value={level.text}
                 onChange={(e) => {
-                  this.handleChange(e, 3, 'degree');
+                  this.handleChange(e, 3, 'level');
                 }}
                 onClick={() => {
-                  this.clearOnClick('Bachelors', 'degree', 3);
+                  this.clearOnClick('Junior', 'level', 3);
                 }}
                 type='text'
-                id='degree'
+                id='level'
               />
 
               <label htmlFor='city'>City</label>
@@ -199,7 +199,7 @@ export default class Practical extends Component {
                   this.handleChange(e, 5, 'to');
                 }}
                 onClick={() => {
-                  this.clearOnClick('2014', 'to', 5);
+                  this.clearOnClick('2020', 'to', 5);
                 }}
                 type='text'
                 id='to'
