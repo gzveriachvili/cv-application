@@ -26,6 +26,22 @@
   row-gap: 0;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--form-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--fourth-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--form-focus);
+}
+
 /*--General Info--*/
 
 .wrapper {
@@ -218,6 +234,9 @@ select:-webkit-autofill:focus {
   right: 40px;
   border-radius: 100px 100px 100px 100px;
 
+  -webkit-box-shadow: 0px 0px 14px -1px #242424;
+  box-shadow: 0px 0px 14px -1px #252525;
+
   z-index: 1;
 }
 
@@ -247,9 +266,11 @@ select:-webkit-autofill:focus {
   z-index: 0;
 }
 
-.name-section h3 {
+.name-section h2 {
   font-family: 'Italiana', serif;
   font-size: 2.3rem;
+
+  margin-top: 15px;
 }
 
 .name-title {
@@ -287,7 +308,7 @@ select:-webkit-autofill:focus {
   margin-bottom: 5px;
 }
 
-.row-2 h3 {
+.preview h3 {
   font-family: 'Krona ', sans-serif;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -332,4 +353,102 @@ select:-webkit-autofill:focus {
 
 .edu-buttons button:hover {
   opacity: 0.7;
+}
+
+.row-1 .uni {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  margin-top: 5px;
+}
+
+.row-1 .uni h4 {
+  font-size: 1.2rem;
+}
+
+.extra-info {
+  margin-top: 5px;
+}
+
+.programme-degree {
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+
+.programme-degree h6 {
+  font-size: 1.2rem;
+}
+
+.one-edu-entry {
+  border-top: 2px dotted var(--third-color);
+  border-bottom: 2px dotted var(--third-color);
+  padding-bottom: 6px;
+
+  z-index: 1;
+}
+
+.preview-educational p {
+  font-size: 1.1rem;
+}
+
+.preview-educational {
+  position: relative;
+}
+
+.decoration {
+  opacity: 0.2;
+}
+
+.decoration.x {
+  position: absolute;
+  z-index: 0;
+  top: 25px;
+  left: 25px;
+
+  clip-path: polygon(
+    20% 0%,
+    0% 20%,
+    30% 50%,
+    0% 80%,
+    20% 100%,
+    50% 70%,
+    80% 100%,
+    100% 80%,
+    70% 50%,
+    100% 20%,
+    80% 0%,
+    50% 30%
+  );
+
+  background-color: var(--secondary-color);
+  width: 200px;
+  height: 200px;
+}
+
+.decoration.o {
+  position: absolute;
+  z-index: 0;
+  top: 80px;
+  right: 130px;
+
+  clip-path: circle(50% at 50% 50%);
+
+  background-color: var(--secondary-color);
+  width: 90px;
+  height: 90px;
+}
+
+.decoration.t {
+  position: absolute;
+  z-index: 0;
+  top: 130px;
+  right: 25px;
+
+  clip-path: circle(50% at 50% 50%);
+
+  background-color: var(--secondary-color);
+  width: 140px;
+  height: 140px;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }

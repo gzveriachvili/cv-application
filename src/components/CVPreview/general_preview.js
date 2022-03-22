@@ -18,7 +18,7 @@ export default class GeneralPreview extends Component {
         <div className='row-1'>
           <div className='name-section'>
             <div className='name-title'>
-              <h3>{fullName}</h3>
+              <h2>{fullName}</h2>
               <p>{title}</p>
             </div>
             <div className='address-contact'>

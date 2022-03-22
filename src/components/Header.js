@@ -16,7 +16,7 @@ export default class Header extends Component {
             <SiLaravel />
             <div className='app-name'>
               <h1>CV Builder App</h1>
-              <h3>Export to PDF automatically</h3>
+              <h3>Create your resume.</h3>
             </div>
           </div>
         </header>

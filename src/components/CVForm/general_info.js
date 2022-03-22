@@ -42,11 +42,11 @@ export default class General extends Component {
     this.onImageChange = this.onImageChange.bind(this);
   }
 
-  handleChange = (e, key) => {
+  handleChange = (e, key, property) => {
     this.setState({
       [Object.keys(this.state)[key]]: {
         text: e.target.value,
-        id: this.state.name.id,
+        id: this.state[property].id,
       },
     });
   };
@@ -86,7 +86,7 @@ export default class General extends Component {
                 <input
                   value={name.text}
                   onChange={(e) => {
-                    this.handleChange(e, 0);
+                    this.handleChange(e, 0, 'name');
                   }}
                   onClick={() => {
                     this.clearOnClick('John Doe', 'name', 0);
@@ -99,7 +99,7 @@ export default class General extends Component {
                 <input
                   value={title.text}
                   onChange={(e) => {
-                    this.handleChange(e, 1);
+                    this.handleChange(e, 1, 'title');
                   }}
                   onClick={() => {
                     this.clearOnClick('UX Designer', 'title', 1);
@@ -112,7 +112,7 @@ export default class General extends Component {
                 <input
                   value={email.text}
                   onChange={(e) => {
-                    this.handleChange(e, 2);
+                    this.handleChange(e, 2, 'email');
                   }}
                   onClick={() => {
                     this.clearOnClick('johndoe@gmail.com', 'email', 2);
@@ -125,7 +125,7 @@ export default class General extends Component {
                 <input
                   value={phone.text}
                   onChange={(e) => {
-                    this.handleChange(e, 3);
+                    this.handleChange(e, 3, 'phone');
                   }}
                   onClick={() => {
                     this.clearOnClick('217-412-7615', 'phone', 3);
@@ -140,7 +140,7 @@ export default class General extends Component {
                 <input
                   value={address.text}
                   onChange={(e) => {
-                    this.handleChange(e, 4);
+                    this.handleChange(e, 4, 'address');
                   }}
                   onClick={() => {
                     this.clearOnClick(
@@ -157,7 +157,7 @@ export default class General extends Component {
                 <textarea
                   value={description.text}
                   onChange={(e) => {
-                    this.handleChange(e, 5);
+                    this.handleChange(e, 5, 'email');
                   }}
                   onClick={() => {
                     this.clearOnClick(
