@@ -15,7 +15,7 @@ export default class EducationalPreview extends Component {
         <div className='decoration o'></div>
         <div className='decoration t'></div>
         <h3>Education</h3>
-        <div className='one-edu-entry'>
+        <div className='one-edu-entry non-extra'>
           <div className='row-1 edu'>
             <div className='uni'>
               <h4>{university},</h4>

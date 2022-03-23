@@ -1,51 +1,53 @@
 import React from 'react';
+import uniqid from 'uniqid';
 
 const EducationalExtra = (props) => {
-  const { extra, i, addMore, deleteInput, uniChange, programmeChange } = props;
-
+  const {
+    extra,
+    addMore,
+    deleteInput,
+    uniChange,
+    programmeChange,
+    fromChange,
+    degreeChange,
+    cityChange,
+    toChange,
+    onInputClick,
+  } = props;
+  let i = 0;
   return (
     <div>
-      {extra.map(() => {
+      {extra.map((task) => {
         return (
-          <div>
+          <div id={i++}>
             <div className='col-1-col-2 edu'>
               <div className='col-1'>
                 <label htmlFor='university'>University Name</label>
                 <input
-                  key={extra.id}
-                  value={extra[i].university.text}
+                  key={task.university.id}
+                  value={task.university.text}
                   onChange={uniChange}
-                  onClick={() => {
-                    this.clearOnClick(
-                      'University of Illinois',
-                      'university',
-                      0
-                    );
-                  }}
+                  onClick={onInputClick}
                   type='text'
                   id='university'
                 />
 
                 <label htmlFor='programme'>Programme</label>
                 <input
-                  value={extra[i].programme.text}
+                  key={task.programme.id}
+                  value={task.programme.text}
                   onChange={programmeChange}
-                  onClick={() => {
-                    this.clearOnClick('Computer Science', 'programme', 1);
-                  }}
+                  onClick={onInputClick}
                   type='text'
                   id='programme'
                 />
 
                 <label htmlFor='from'>From</label>
                 <input
-                  value={extra[i].from.text}
-                  onChange={(e) => {
-                    this.handleChange(e, 2, 'from');
-                  }}
-                  onClick={() => {
-                    this.clearOnClick('2010', 'from', 2);
-                  }}
+                  key={task.from.id}
+                  value={task.from.text}
+                  onChange={fromChange}
+                  onClick={onInputClick}
                   type='text'
                   id='from'
                 />
@@ -54,39 +56,30 @@ const EducationalExtra = (props) => {
               <div className='col-2'>
                 <label htmlFor='degree'>Degree</label>
                 <input
-                  value={extra[i].degree.text}
-                  onChange={(e) => {
-                    this.handleChange(e, 3, 'degree');
-                  }}
-                  onClick={() => {
-                    this.clearOnClick('Bachelors', 'degree', 3);
-                  }}
+                  key={task.degree.id}
+                  value={task.degree.text}
+                  onChange={degreeChange}
+                  onClick={onInputClick}
                   type='text'
                   id='degree'
                 />
 
                 <label htmlFor='city'>City</label>
                 <input
-                  value={extra[i].city.text}
-                  onChange={(e) => {
-                    this.handleChange(e, 4, 'city');
-                  }}
-                  onClick={() => {
-                    this.clearOnClick('Chicago', 'city', 4);
-                  }}
+                  key={task.city.id}
+                  value={task.city.text}
+                  onChange={cityChange}
+                  onClick={onInputClick}
                   type='text'
                   id='city'
                 />
 
                 <label htmlFor='to'>To</label>
                 <input
-                  value={extra[i].to.text}
-                  onChange={(e) => {
-                    this.handleChange(e, 5, 'to');
-                  }}
-                  onClick={() => {
-                    this.clearOnClick('2014', 'to', 5);
-                  }}
+                  key={task.to.id}
+                  value={task.to.text}
+                  onChange={toChange}
+                  onClick={onInputClick}
                   type='text'
                   id='to'
                 />
@@ -94,9 +87,6 @@ const EducationalExtra = (props) => {
             </div>
 
             <div className='edu-buttons'>
-              <button onClick={deleteInput} type='submit'>
-                Delete
-              </button>
               <button onClick={addMore} type='submit'>
                 Add more
               </button>

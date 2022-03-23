@@ -46,9 +46,9 @@
 
 .wrapper {
   background-color: var(--main-bg);
-  display: flex;
-  justify-content: center;
-  column-gap: 100px;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  column-gap: 30px;
   row-gap: 0;
   padding: 30px 80px 30px 80px;
 }
@@ -385,12 +385,19 @@ select:-webkit-autofill:focus {
   font-size: 1.2rem;
 }
 
-.one-edu-entry {
+.one-edu-entry.non-extra {
   border-top: 2px dotted var(--third-color);
+}
+
+.one-edu-entry {
   border-bottom: 2px dotted var(--third-color);
   padding-bottom: 6px;
 
   z-index: 1;
+}
+
+.extra-entry .programme-degree {
+  margin-bottom: 6px;
 }
 
 .preview-educational p {

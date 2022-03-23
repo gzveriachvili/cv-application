@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import uniqid from 'uniqid';
 import EducationalPreview from '../CVPreview/educational_preview';
 import EducationalExtra from '../Util/educational_extra';
+import EducationalPreviewExtra from '../Util/educational_extra_preview';
 
 export default class Educational extends Component {
   // eslint-disable-next-line no-useless-constructor
@@ -34,14 +35,43 @@ export default class Educational extends Component {
         id: uniqid(),
       },
 
-      index: 0,
-      count: 0,
+      count: 1,
+
+      task: {
+        university: {
+          text: 'University',
+          id: uniqid(),
+        },
+        programme: {
+          text: 'Programme',
+          id: uniqid(),
+        },
+        from: {
+          text: 'From',
+          id: uniqid(),
+        },
+        degree: {
+          text: 'Degree',
+          id: uniqid(),
+        },
+        city: {
+          text: 'City',
+          id: uniqid(),
+        },
+        to: {
+          text: 'To',
+          id: uniqid(),
+        },
+        id: uniqid(),
+        index: 0,
+      },
 
       extra: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.clearOnClick = this.clearOnClick.bind(this);
+    this.onSubmitTask = this.onSubmitTask.bind(this);
   }
 
   handleChange = (e, key, property) => {
@@ -53,13 +83,13 @@ export default class Educational extends Component {
     });
   };
 
-  handleChangeExtra = (e, key, property) => {
+  handleChangeExtra = (e, key, key2, property) => {
     let items = [...this.state.extra];
     let item = { ...items[key] };
 
     item[property].text = e.target.value;
-    item[property].id = this.state.extra[key][property].id;
-    items[key] = item;
+    item[property].id = this.state.extra[key2][property].id;
+    items[key2] = item;
 
     this.setState({ items });
   };
@@ -75,49 +105,65 @@ export default class Educational extends Component {
     }
   };
 
+  alertClick = (e) => {
+    //alert(e.target.parentElement.parentElement.parentElement.id);
+
+    this.setState({
+      count: e.target.parentElement.parentElement.parentElement.id,
+    });
+  };
+
   onSubmitTask = (e) => {
     e.preventDefault();
 
     this.setState({
-      extra: this.state.extra.concat({
+      task: {
         university: {
-          text: this.state.index,
+          text: 'University',
           id: uniqid(),
         },
         programme: {
-          text: '-',
+          text: 'Programme',
           id: uniqid(),
         },
         from: {
-          text: '-',
+          text: 'From',
           id: uniqid(),
         },
         degree: {
-          text: '-',
+          text: 'Degree',
           id: uniqid(),
         },
         city: {
-          text: '-',
+          text: 'City',
           id: uniqid(),
         },
         to: {
-          text: '-',
+          text: 'To',
           id: uniqid(),
         },
         id: uniqid(),
-      }),
+        index: this.state.count,
+      },
+      extra: this.state.extra.concat(this.state.task),
     });
 
     console.log(this.state.extra);
-
-    this.setState({
-      index: this.state.index + 1,
-    });
+    console.log(this.state.count);
   };
 
   render() {
-    const { university, programme, degree, city, from, to, extra, index } =
-      this.state;
+    const {
+      university,
+      programme,
+      degree,
+      city,
+      from,
+      to,
+      extra,
+      task,
+      count,
+    } = this.state;
 
     return (
       <div className='wrapper'>
@@ -209,7 +255,7 @@ export default class Educational extends Component {
             </div>
           </div>
 
-          {/* <div className='edu-buttons'>
+          <div className='edu-buttons'>
             <button onClick={this.onSubmitTask} type='submit'>
               Add more
             </button>
@@ -217,14 +263,29 @@ export default class Educational extends Component {
           <EducationalExtra
             extra={extra}
             i={0}
+            onInputClick={(e) => {
+              this.alertClick(e);
+            }}
             uniChange={(e) => {
-              this.handleChangeExtra(e, 0, 'university');
+              this.handleChangeExtra(e, count, 0, 'university');
             }}
             programmeChange={(e) => {
-              this.handleChangeExtra(e, 0, 'programme');
+              this.handleChangeExtra(e, count, 0, 'programme');
+            }}
+            fromChange={(e) => {
+              this.handleChangeExtra(e, count, 0, 'from');
+            }}
+            degreeChange={(e) => {
+              this.handleChangeExtra(e, count, 0, 'degree');
+            }}
+            cityChange={(e) => {
+              this.handleChangeExtra(e, count, 0, 'city');
+            }}
+            toChange={(e) => {
+              this.handleChangeExtra(e, count, 0, 'to');
             }}
             addMore={this.onSubmitTask}
-          /> */}
+          />
         </div>
 
         <div className='preview'>
@@ -236,6 +297,8 @@ export default class Educational extends Component {
             programme={programme.text}
             degree={degree.text}
           />
+
+          <EducationalPreviewExtra extra={extra} />
         </div>
       </div>
     );
