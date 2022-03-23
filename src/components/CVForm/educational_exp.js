@@ -72,6 +72,7 @@ export default class Educational extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.clearOnClick = this.clearOnClick.bind(this);
     this.onSubmitTask = this.onSubmitTask.bind(this);
+    this.deleteExtra = this.deleteExtra.bind(this);
   }
 
   handleChange = (e, key, property) => {
@@ -92,6 +93,14 @@ export default class Educational extends Component {
     items[key2] = item;
 
     this.setState({ items });
+  };
+
+  deleteExtra = (e) => {
+    e.preventDefault();
+    //console.log(e.currentTarget.parentElement.parentElement.id);
+    //let i = parseInt(e.target.parentElement.parentElement.parentElement.id);
+
+    this.setState({ extra: this.state.extra.slice(1) });
   };
 
   clearOnClick = (string, property, key) => {
@@ -153,17 +162,8 @@ export default class Educational extends Component {
   };
 
   render() {
-    const {
-      university,
-      programme,
-      degree,
-      city,
-      from,
-      to,
-      extra,
-      task,
-      count,
-    } = this.state;
+    const { university, programme, degree, city, from, to, extra, count } =
+      this.state;
 
     return (
       <div className='wrapper'>
@@ -285,6 +285,9 @@ export default class Educational extends Component {
               this.handleChangeExtra(e, count, 0, 'to');
             }}
             addMore={this.onSubmitTask}
+            deleteInput={(e) => {
+              this.deleteExtra(e);
+            }}
           />
         </div>
 

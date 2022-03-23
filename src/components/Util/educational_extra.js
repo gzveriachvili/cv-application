@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from 'uniqid';
 
 const EducationalExtra = (props) => {
   const {
@@ -87,6 +86,9 @@ const EducationalExtra = (props) => {
             </div>
 
             <div className='edu-buttons'>
+              <button onClick={deleteInput} type='submit'>
+                Delete
+              </button>
               <button onClick={addMore} type='submit'>
                 Add more
               </button>
