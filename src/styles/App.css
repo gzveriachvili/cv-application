@@ -20,12 +20,6 @@
   box-sizing: border-box;
 }
 
-.main-wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 0;
-}
-
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -47,7 +41,7 @@
 .wrapper {
   background-color: var(--main-bg);
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 0.9fr 1fr;
   column-gap: 30px;
   row-gap: 0;
   padding: 30px 80px 30px 80px;
@@ -229,6 +223,10 @@ select:-webkit-autofill:focus {
 
 .preview-general .row-1 {
   display: flex;
+}
+
+.preview-general .row-2 p {
+  font-size: 1.2rem;
 }
 
 .photo-section img {
