@@ -3,7 +3,7 @@
 The purpose of this project is to enforce my learnings on React fundamentals, such as the usage of components, props and state management.
 This project is part of [The Odin Project](https://www.theodinproject.com) curriculum.
 
-[Live Demo](https://www.theodinproject.com)
+[Live Demo](https://gzveriachvili.github.io/cv-application/)
 
 ## How to install
 
